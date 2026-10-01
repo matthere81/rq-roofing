@@ -44,7 +44,18 @@ p{margin:0 0 1em}
 .header-call{display:inline-flex; align-items:center; gap:.5rem; background:var(--orange); color:#fff; font-family:var(--font-head); font-weight:600; letter-spacing:.04em; text-decoration:none; padding:.65rem 1rem; border-radius:8px; font-size:.98rem; white-space:nowrap}
 .header-call svg{width:18px; height:18px}
 .main-nav{display:none}
+.nav-toggle{display:inline-flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; background:none; border:1px solid rgba(255,255,255,.35); border-radius:8px; padding:.62rem .68rem; cursor:pointer; flex-shrink:0}
+.nav-toggle span{display:block; width:22px; height:2px; background:#fff; border-radius:2px; transition:transform .2s ease, opacity .2s ease}
+.site-header.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.site-header.nav-open .nav-toggle span:nth-child(2){opacity:0}
+.site-header.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:899px){
+  .site-header.nav-open .main-nav{display:flex; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; background:var(--navy-dark); border-top:1px solid rgba(255,255,255,.12); padding:.5rem 1.25rem 1rem; box-shadow:0 14px 28px rgba(0,0,0,.4)}
+  .site-header.nav-open .main-nav a{padding:.8rem .25rem; border-bottom:1px solid rgba(255,255,255,.08); font-size:1.05rem}
+  .site-header.nav-open .main-nav a:last-child{border-bottom:none}
+}
 @media(min-width:900px){
+  .nav-toggle{display:none}
   .main-nav{display:flex; gap:1.4rem; align-items:center}
   .main-nav a{color:#dfe6f2; text-decoration:none; font-weight:600; font-size:.95rem; letter-spacing:.02em}
   .main-nav a:hover, .main-nav a[aria-current="page"]{color:#ffb37e}
@@ -77,6 +88,9 @@ p{margin:0 0 1em}
 .field input, .field select, .field textarea{width:100%; font:inherit; font-size:1rem; padding:.8rem .9rem; border:2px solid var(--line); border-radius:8px; background:#fff; color:var(--ink)}
 .field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--orange); box-shadow:0 0 0 3px rgba(242,101,34,.18)}
 .field textarea{min-height:88px; resize:vertical}
+.field input.field-error, .field select.field-error{border-color:#c62828; box-shadow:0 0 0 3px rgba(198,40,40,.15)}
+.field-msg{display:none; font-size:.85rem; color:#c62828; margin:.35rem 0 0; font-weight:600}
+.field-msg.show{display:block}
 .form-note{font-size:.8rem; color:var(--muted); text-align:center; margin:.8rem 0 0}
 .form-success{display:none; text-align:center; padding:1.5rem .5rem}
 .form-success.show{display:block}
@@ -112,8 +126,8 @@ p{margin:0 0 1em}
 /* Before/after slider */
 .ba-wrap{position:relative; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); max-width:860px; margin-inline:auto; user-select:none; touch-action:pan-y}
 .ba-img{display:block; width:100%; aspect-ratio:16/10; object-fit:cover}
-.ba-after{position:absolute; top:0; left:0; bottom:0; overflow:hidden}
-.ba-after img{position:absolute; top:0; left:0; height:100%; object-fit:cover; max-width:none}
+.ba-after{position:absolute; top:0; right:0; bottom:0; overflow:hidden}
+.ba-after img{position:absolute; top:0; right:0; height:100%; object-fit:cover; max-width:none}
 .ba-handle{position:absolute; top:0; bottom:0; width:3px; background:#fff; box-shadow:0 0 12px rgba(0,0,0,.5); cursor:ew-resize}
 .ba-knob{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:52px; height:52px; border-radius:50%; background:var(--orange); color:#fff; display:grid; place-items:center; font-family:var(--font-head); font-weight:700; box-shadow:0 4px 14px rgba(0,0,0,.4)}
 .ba-tag{position:absolute; top:12px; font-family:var(--font-head); font-weight:600; font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; padding:.4rem .8rem; border-radius:6px}

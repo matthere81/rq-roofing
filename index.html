@@ -31,7 +31,8 @@
       <span class="brand-mark">RQ</span>
       <span class="brand-name">RQ Roofing<small>Sun Prairie · WI</small></span>
     </a>
-    <nav class="main-nav" aria-label="Primary">
+    <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <nav class="main-nav" id="primary-nav" aria-label="Primary">
       <a href="index.html" aria-current="page">Home</a>
       <a href="services.html">Services</a>
       <a href="gallery.html">Our Work</a>
@@ -78,11 +79,13 @@
             <div class="field">
               <label for="h-name">Full name</label>
               <input id="h-name" name="name" type="text" autocomplete="name" placeholder="Jane Homeowner" required />
-            </div>
+            
+              <p class="field-msg" id="h-name-msg" role="alert"></p></div>
             <div class="field">
               <label for="h-phone">Phone</label>
               <input id="h-phone" name="phone" type="tel" autocomplete="tel" placeholder="(608) 555-0123" required />
-            </div>
+            
+              <p class="field-msg" id="h-phone-msg" role="alert"></p></div>
             <div class="field">
               <label for="h-address">Property address</label>
               <input id="h-address" name="address" type="text" autocomplete="street-address" placeholder="123 Main St, Sun Prairie, WI" />
